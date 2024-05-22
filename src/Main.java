@@ -1,0 +1,8 @@
+import People.Admin;
+import People.Person;
+
+public class Main {
+    public static void main(String[] args) {
+
+    }
+}
