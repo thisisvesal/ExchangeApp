@@ -1,4 +1,4 @@
-package Graphics;
+package Authorizaztion;
 
 import People.Person;
 
@@ -6,39 +6,31 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Auth {
-//    public boolean UniqueID(String ID) {
-//        for (Person person : people) {
-//            if (person.ID.equals(ID))
-//                return false;
-//        }
-//        return true;
-//    }
-//
-//    public boolean UniqueEmail(String email) {
-//        for (Person person : people) {
-//            if (person.email.equals(email))
-//                return false;
-//        }
-//        return true;
-//    }
-//
-//    public boolean UniqueUserName(String UserName) {
-//        for (Person person : people) {
-//            if (person.UserName.equals(UserName))
-//                return false;
-//        }
-//        return true;
-//    }
-//
-//    public boolean UniquePhoneNumber(String phoneNumber) {
-//        for (Person person : people) {
-//            if (person.phoneNumber.equals(phoneNumber))
-//                return false;
-//        }
-//        return true;
-//    }
+   private boolean uniqueUsername(String username) {
+       for (Person person : Person.getPeople()) {
+           if (person.getUsername().equals(username))
+               return false;
+       }
+       return true;
+   }
 
-    protected boolean isUserNameValid(String UserName) {
+   private boolean uniqueEmail(String email) {
+       for (Person person : Person.getPeople()) {
+           if (person.getEmail().equals(email))
+               return false;
+       }
+       return true;
+   }
+
+   private boolean uniquePhoneNumber(String phoneNumber) {
+       for (Person person : Person.getPeople()) {
+           if (person.getPhoneNumber().equals(phoneNumber))
+               return false;
+       }
+       return true;
+   }
+
+    private boolean isUserNameValid(String UserName) {
         String regex = "^[a-zA-Z0-9]{3,20}$";
         Pattern patten = Pattern.compile(regex);
         Matcher matcher = patten.matcher(UserName);
@@ -49,7 +41,7 @@ public class Auth {
         return false;
     }
 
-    protected boolean isPasswordValid(String pass) {
+    private boolean isPasswordValid(String pass) {
         String regex = "^[a-zA-Z0-9]{1,12}$";
         Pattern patten = Pattern.compile(regex);
         Matcher matcher = patten.matcher(pass);
@@ -60,7 +52,7 @@ public class Auth {
         return false;
     }
 
-    protected boolean isInputValid(String string) {
+    private boolean isInputValid(String string) {
         String regex = "^[a-zA-Z]{1,18}$";
         Pattern patten = Pattern.compile(regex);
         Matcher matcher = patten.matcher(string);
@@ -71,7 +63,7 @@ public class Auth {
         return false;
     }
 
-    protected boolean isEmailValid(String email) {
+    private boolean isEmailValid(String email) {
         String regex = "^[a-zA-Z0-9.]{1,18}@[a-z0-9.]{1,8}(.)[a-z]{1,4}$";
         Pattern patten = Pattern.compile(regex);
         Matcher matcher = patten.matcher(email);
@@ -82,9 +74,9 @@ public class Auth {
         return false;
     }
 
-//    public abstract boolean isIDValid(String ID);
+//    public abstract boolean isgetUsername()ValgetUsername()(String getUsername());
 
-    protected boolean isPhoneNumberValid(String phone) {
+    private boolean isPhoneNumberValid(String phone) {
         String regex = "^09[0-9]{9}$";
         Pattern patten = Pattern.compile(regex);
         Matcher matcher = patten.matcher(phone);
@@ -93,5 +85,22 @@ public class Auth {
             return true;
         }
         return false;
+    }
+
+    public boolean isInfoValid(String username, String password, String email, String phoneNumber) {
+        if (!isUserNameValid(username)) {
+            return false;
+        }
+        if (!isPasswordValid(password)) {
+            return false;
+        }
+        if (!isEmailValid(email)) {
+            return false;
+        }
+        if (!isPhoneNumberValid(phoneNumber)) {
+            return false;
+        }
+
+        return true;
     }
 }

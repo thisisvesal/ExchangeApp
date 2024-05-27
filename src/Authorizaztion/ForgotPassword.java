@@ -1,4 +1,4 @@
-package Graphics;
+package Authorizaztion;
 
 public class ForgotPassword {
 }
