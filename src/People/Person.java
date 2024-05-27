@@ -10,8 +10,41 @@ public class Person {
     protected String password;
     protected String firstName;
     protected String lastName;
-    protected static ArrayList<Person> array = new ArrayList<>();
+    protected String email;
+    protected String phoneNumber;
+    protected static ArrayList<Person> people = new ArrayList<>();
     protected Wallet wallet;
 
+    public static ArrayList<Person> getPeople() {
+        return people;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Wallet getWallet() {
+        return wallet;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
 }
