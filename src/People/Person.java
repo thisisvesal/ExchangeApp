@@ -16,6 +16,8 @@ public class Person {
     protected String phoneNumber;
     protected static ArrayList<Person> people = new ArrayList<>();
     protected Wallet wallet = new Wallet();
+    private static Person current;
+    // TODO: Implement the methods needed for current person, keep access modifiers as private as possible
 
     protected Person() {
         
@@ -28,6 +30,7 @@ public class Person {
         setLastName(lastName);
         setEmail(email);
         setPhoneNumber(phoneNumber);
+        addPerson(this);
     }
 
     public static ArrayList<Person> getPeople() {
@@ -106,8 +109,12 @@ public class Person {
         this.username = username;
     }
 
-    public static void addPerson(Person person) {
+    private static void addPerson(Person person) {
         people.add(person);
+    }
+
+    public static void setCurrentPerson(Person current) {
+        Person.current = current;
     }
 
 }

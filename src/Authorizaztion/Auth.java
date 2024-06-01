@@ -5,8 +5,14 @@ import People.Person;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import Exceptions.InvalidEmailException;
+import Exceptions.InvalidInfoException;
+import Exceptions.InvalidPasswordException;
+import Exceptions.InvalidPhoneNumberException;
+import Exceptions.InvalidUsernameException;
+
 public class Auth {
-   private boolean uniqueUsername(String username) {
+   private static boolean uniqueUsername(String username) {
        for (Person person : Person.getPeople()) {
            if (person.getUsername().equals(username))
                return false;
@@ -14,7 +20,7 @@ public class Auth {
        return true;
    }
 
-   private boolean uniqueEmail(String email) {
+   private static boolean uniqueEmail(String email) {
        for (Person person : Person.getPeople()) {
            if (person.getEmail().equals(email))
                return false;
@@ -22,7 +28,7 @@ public class Auth {
        return true;
    }
 
-   private boolean uniquePhoneNumber(String phoneNumber) {
+   private static boolean uniquePhoneNumber(String phoneNumber) {
        for (Person person : Person.getPeople()) {
            if (person.getPhoneNumber().equals(phoneNumber))
                return false;
@@ -30,7 +36,7 @@ public class Auth {
        return true;
    }
 
-    private boolean isUserNameValid(String UserName) {
+    private static boolean isUserNameValid(String UserName) {
         if (!uniqueUsername(UserName)) {
             return false;
         }
@@ -44,7 +50,7 @@ public class Auth {
         return false;
     }
 
-    private boolean isPasswordValid(String pass) {
+    private static boolean isPasswordValid(String pass) {
         String regex = "^[a-zA-Z0-9]{1,12}$";
         Pattern patten = Pattern.compile(regex);
         Matcher matcher = patten.matcher(pass);
@@ -55,9 +61,16 @@ public class Auth {
         return false;
     }
 
+    private static boolean doPasswordAndRepeatMatch(String password, String repeat) {
+        if (password.compareTo(repeat) == 0) {
+            return true;
+        }
+        return false;
+    }
+
     
     // TODO: What is this for
-    // private boolean isInputValid(String string) {
+    // private static boolean isInputValid(String string) {
     //     String regex = "^[a-zA-Z]{1,18}$";
     //     Pattern patten = Pattern.compile(regex);
     //     Matcher matcher = patten.matcher(string);
@@ -68,11 +81,11 @@ public class Auth {
     //     return false;
     // }
 
-    private boolean isEmailValid(String email) {
+    private static boolean isEmailValid(String email) {
         if (!uniqueEmail(email)) {
             return false;
         }
-        String regex = "^[a-zA-Z0-9.]{1,18}@[a-z0-9.]{1,8}(.)[a-z]{1,4}$";
+        String regex = "^[a-zA-Z0-9.]{1,30}@[a-z0-9.]{1,8}(.)[a-z]{1,4}$";
         Pattern patten = Pattern.compile(regex);
         Matcher matcher = patten.matcher(email);
         boolean matchFound = matcher.find();
@@ -82,9 +95,7 @@ public class Auth {
         return false;
     }
 
-//    public abstract boolean isgetUsername()ValgetUsername()(String getUsername());
-
-    private boolean isPhoneNumberValid(String phone) {
+    private static boolean isPhoneNumberValid(String phone) {
         if (!uniquePhoneNumber(phone)) {
             return false;
         }
@@ -98,18 +109,23 @@ public class Auth {
         return false;
     }
 
-    public boolean isInfoValid(String username, String password, String email, String phoneNumber) {
-        if (!isUserNameValid(username)) {
-            return false;
-        }
-        if (!isPasswordValid(password)) {
-            return false;
+    // Weird design here.
+    // I don't know if using exceptions to determine the type of invalid info is a good idea at all
+    public static boolean isInfoValid(String username, String password, String repeatPassword, String email, String phoneNumber) throws InvalidInfoException {
+        if (!isPhoneNumberValid(phoneNumber)) {
+            throw new InvalidPhoneNumberException();
         }
         if (!isEmailValid(email)) {
-            return false;
+            throw new InvalidEmailException();
         }
-        if (!isPhoneNumberValid(phoneNumber)) {
-            return false;
+        if (!isUserNameValid(username)) {
+            throw new InvalidUsernameException();
+        }
+        if (!isPasswordValid(password)) {
+            throw new InvalidPasswordException();
+        }
+        if (!doPasswordAndRepeatMatch(password, repeatPassword)) {
+            throw new InvalidPasswordException();
         }
 
         return true;
