@@ -8,7 +8,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // TODO Auto-generated method stub
         try {
             Parent root = FXMLLoader.load(getClass().getResource("Graphics/LoginPage.fxml"));
             Scene scene = new Scene(root);
