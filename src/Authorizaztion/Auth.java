@@ -31,6 +31,9 @@ public class Auth {
    }
 
     private boolean isUserNameValid(String UserName) {
+        if (!uniqueUsername(UserName)) {
+            return false;
+        }
         String regex = "^[a-zA-Z0-9]{3,20}$";
         Pattern patten = Pattern.compile(regex);
         Matcher matcher = patten.matcher(UserName);
@@ -52,18 +55,23 @@ public class Auth {
         return false;
     }
 
-    private boolean isInputValid(String string) {
-        String regex = "^[a-zA-Z]{1,18}$";
-        Pattern patten = Pattern.compile(regex);
-        Matcher matcher = patten.matcher(string);
-        boolean matchFound = matcher.find();
-        if (matchFound) {
-            return true;
-        }
-        return false;
-    }
+    
+    // TODO: What is this for
+    // private boolean isInputValid(String string) {
+    //     String regex = "^[a-zA-Z]{1,18}$";
+    //     Pattern patten = Pattern.compile(regex);
+    //     Matcher matcher = patten.matcher(string);
+    //     boolean matchFound = matcher.find();
+    //     if (matchFound) {
+    //         return true;
+    //     }
+    //     return false;
+    // }
 
     private boolean isEmailValid(String email) {
+        if (!uniqueEmail(email)) {
+            return false;
+        }
         String regex = "^[a-zA-Z0-9.]{1,18}@[a-z0-9.]{1,8}(.)[a-z]{1,4}$";
         Pattern patten = Pattern.compile(regex);
         Matcher matcher = patten.matcher(email);
@@ -77,6 +85,9 @@ public class Auth {
 //    public abstract boolean isgetUsername()ValgetUsername()(String getUsername());
 
     private boolean isPhoneNumberValid(String phone) {
+        if (!uniquePhoneNumber(phone)) {
+            return false;
+        }
         String regex = "^09[0-9]{9}$";
         Pattern patten = Pattern.compile(regex);
         Matcher matcher = patten.matcher(phone);
