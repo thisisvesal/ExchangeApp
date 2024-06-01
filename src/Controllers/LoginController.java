@@ -19,7 +19,7 @@ public class LoginController {
     @FXML
     void getTextInput(ActionEvent event) {
         try {
-            Person.addPerson(Person.findPerson(usernameField.getText(), passwordField.getText()));
+            Person.setCurrentPerson(Person.findPerson(usernameField.getText(), passwordField.getText()));
             System.out.println("Loginpage controller - username and password recieved");
         } catch (UserNotFoundException e) {
             System.out.print("Loginpage controller - caught an exception - message: ");
