@@ -1,3 +1,5 @@
+import Controllers.SceneController;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,7 +10,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+        // Initial load:
         try {
+            // THE NEXT LINE IS IMPORTANT!!!!!
+            SceneController.getInstance().setStage(primaryStage);
+
             Parent root = FXMLLoader.load(getClass().getResource("Graphics/LoginPage.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);

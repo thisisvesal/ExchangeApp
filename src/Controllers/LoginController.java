@@ -1,4 +1,5 @@
 package Controllers;
+
 import Exceptions.UserNotFoundException;
 import People.Person;
 import javafx.event.ActionEvent;
@@ -28,7 +29,8 @@ public class LoginController {
 
     @FXML
     void openSignUpPage(MouseEvent event) {
-        System.out.println("Loginpage controller - opening signup");
+        System.out.println("LoginController - calling SceneController for scene switch");
+        SceneController.getInstance().switchScene("SignupPage.fxml");
     }
 
 }
