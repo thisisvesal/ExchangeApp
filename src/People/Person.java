@@ -4,6 +4,8 @@ import Properties.Wallet;
 
 import java.util.ArrayList;
 
+import Exceptions.UserNotFoundException;
+
 public class Person {
     // Auth info:
     protected  String username;
@@ -17,6 +19,26 @@ public class Person {
 
     public static ArrayList<Person> getPeople() {
         return people;
+    }
+
+    private static boolean personExists(String username, String password) {
+        for (Person person : people) {
+            if (person.password.equals(password) && person.username.equals(username)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static Person findPerson(String username, String password) throws UserNotFoundException {
+        if(people == null) throw new Exceptions.UserNotFoundException();
+        for (Person person : people) {
+            if (person.password.equals(password) && person.username.equals(username)) {
+                return person;
+            }
+        }
+        throw new Exceptions.UserNotFoundException();
     }
 
     public String getUsername() {
@@ -45,6 +67,10 @@ public class Person {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public static void addPerson(Person person) {
+        people.add(person);
     }
 
 }
