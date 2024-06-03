@@ -1,15 +1,12 @@
 package Controllers;
 
 import Authorizaztion.Auth;
-import Exceptions.*;
 import People.Person;
 import People.User;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 
 public class SignupController {
 
@@ -34,55 +31,44 @@ public class SignupController {
     private TextField repeatPasswordField;
 
     @FXML
-    void getTextInput(ActionEvent event) {
-        try {
-            Auth.isInfoValid(newUsernameField.getText(), passwordFiled.getText(), repeatPasswordField.getText(), emailField.getText(),
-                    phoneNumberFiled.getText());
+    void getTextInput() {
+        boolean[] invalid = Auth.isInfoValid(newUsernameField.getText(), passwordFiled.getText(), repeatPasswordField.getText(), emailField.getText(),
+                phoneNumberFiled.getText());
+        boolean allInfoValid = true;
+        for (int i = 0; i <= 3; i++) {
+            if (invalid[i]) {
+                allInfoValid = false;
+                switch (i) {
+                    case 0:
+                        phoneNumberFiled.setText(null);
+                        break;
+                    case 1:
+                        emailField.setText(null);
+                        break;
+                    case 2:
+                        newUsernameField.setText(null);
+                        break;
+                    case 3:
+                        passwordFiled.setText(null);
+                        repeatPasswordField.setText(null);
+                        break;
+                }
+            }
+        }
 
+        if (allInfoValid) {
             User member = new User(newUsernameField.getText(), passwordFiled.getText(), nameField.getText(),
                     lastNameField.getText(), emailField.getText(), phoneNumberFiled.getText());
             Person.setCurrentPerson(member);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Success");
             alert.setHeaderText("You were signed up successfully.");
-            // alert.setContentText("This is content text.");
-            alert.showAndWait();
-
-        } catch (InvalidUsernameException e) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Invalid info");
-            alert.setHeaderText("Invalid username");
-            alert.setContentText("Please enter a valid username.");
-            alert.showAndWait();
-        } catch (InvalidPasswordException e) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Invalid info");
-            alert.setHeaderText("Invalid password");
-            alert.setContentText("Please enter a valid password.");
-            alert.showAndWait();
-        } catch (InvalidEmailException e) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Invalid info");
-            alert.setHeaderText("Invalid email");
-            alert.setContentText("Please enter a valid email.");
-            alert.showAndWait();
-        } catch (InvalidPhoneNumberException e) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Invalid info");
-            alert.setHeaderText("Invalid phone number");
-            alert.setContentText("Please enter a valid phone number.");
-            alert.showAndWait();
-        } catch (InvalidInfoException e) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Invalid info");
-            alert.setHeaderText("Invalid sign up information");
-            alert.setContentText("Please check your info.");
             alert.showAndWait();
         }
     }
 
     @FXML
-    void openLoginPage(MouseEvent event) {
+    void openLoginPage() {
         System.out.println("SignUpController - calling SceneController for scene switch");
         SceneController.getInstance().switchScene("LoginPage.fxml");
     }
