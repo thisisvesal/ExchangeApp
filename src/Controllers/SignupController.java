@@ -24,11 +24,13 @@ public class SignupController {
 
     @FXML
     private PasswordField passwordFiled;
+
     @FXML
     private TextField phoneNumberFiled;
 
     @FXML
     private TextField repeatPasswordField;
+
 
     @FXML
     void getTextInput() {
