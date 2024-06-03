@@ -40,14 +40,14 @@ public class Auth {
         return matcher.find();
     }
 
-    private static boolean isPasswordValid(String pass) {
+    public static boolean isPasswordValid(String pass) {
         String regex = "^[a-zA-Z0-9]{1,12}$";
         Pattern patten = Pattern.compile(regex);
         Matcher matcher = patten.matcher(pass);
         return matcher.find();
     }
 
-    private static boolean doPasswordAndRepeatMatch(String password, String repeat) {
+    public static boolean doPasswordAndRepeatMatch(String password, String repeat) {
         return password.compareTo(repeat) == 0;
     }
 
