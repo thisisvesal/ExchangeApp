@@ -33,4 +33,11 @@ public class LoginController {
         SceneController.getInstance().switchScene("SignupPage.fxml");
     }
 
+    @FXML
+    void openForgotPasswordPage(MouseEvent event) {
+        System.out.println("LoginController - calling forgot Password for scene switch");
+        SceneController.getInstance().switchScene("ForgotPasswordPage.fxml");
+    }
+
+
 }
