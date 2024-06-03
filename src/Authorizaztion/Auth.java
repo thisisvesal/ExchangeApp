@@ -37,28 +37,27 @@ public class Auth {
         String regex = "^[a-zA-Z0-9]{3,20}$";
         Pattern patten = Pattern.compile(regex);
         Matcher matcher = patten.matcher(UserName);
-        return matcher.find();
+        boolean matchFound = matcher.find();
+        if (matchFound) {
+            return true;
+        }
+        return false;
     }
 
     public static boolean isPasswordValid(String pass) {
         String regex = "^[a-zA-Z0-9]{1,12}$";
         Pattern patten = Pattern.compile(regex);
         Matcher matcher = patten.matcher(pass);
-        return matcher.find();
+        boolean matchFound = matcher.find();
+        if (matchFound) {
+            return true;
+        }
+        return false;
     }
 
     public static boolean doPasswordAndRepeatMatch(String password, String repeat) {
         return password.compareTo(repeat) == 0;
     }
-
-
-    // TODO: What is this for
-    // private static boolean isInputValid(String string) {
-    //     String regex = "^[a-zA-Z]{1,18}$";
-    //     Pattern patten = Pattern.compile(regex);
-    //     Matcher matcher = patten.matcher(string);
-    //     return matcher.find();
-    // }
 
     private static boolean isEmailValid(String email) {
         if (!uniqueEmail(email)) {
@@ -67,17 +66,25 @@ public class Auth {
         String regex = "^[a-zA-Z0-9.]{1,30}@[a-z0-9.]{1,8}(.)[a-z]{1,4}$";
         Pattern patten = Pattern.compile(regex);
         Matcher matcher = patten.matcher(email);
-        return matcher.find();
+        boolean matchFound = matcher.find();
+        if (matchFound) {
+            return true;
+        }
+        return false;
     }
 
     private static boolean isPhoneNumberValid(String phone) {
         if (!uniquePhoneNumber(phone)) {
             return false;
         }
-        String regex = "^09[0-9]{9}$";
+        String regex = "^09\\d{9}$";
         Pattern patten = Pattern.compile(regex);
         Matcher matcher = patten.matcher(phone);
-        return matcher.find();
+        boolean matchFound = matcher.find();
+        if (matchFound) {
+            return true;
+        }
+        return false;
     }
 
 

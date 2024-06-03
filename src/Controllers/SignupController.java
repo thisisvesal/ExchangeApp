@@ -11,6 +11,9 @@ import javafx.scene.control.TextField;
 public class SignupController {
 
     @FXML
+    private TextField captchaField;
+
+    @FXML
     private TextField emailField;
 
     @FXML
@@ -23,7 +26,7 @@ public class SignupController {
     private TextField newUsernameField;
 
     @FXML
-    private PasswordField passwordFiled;
+    private PasswordField passwordField;
 
     @FXML
     private TextField phoneNumberFiled;
@@ -31,10 +34,9 @@ public class SignupController {
     @FXML
     private TextField repeatPasswordField;
 
-
     @FXML
     void getTextInput() {
-        boolean[] invalid = Auth.isInfoValid(newUsernameField.getText(), passwordFiled.getText(), repeatPasswordField.getText(), emailField.getText(),
+        boolean[] invalid = Auth.isInfoValid(newUsernameField.getText(), passwordField.getText(), repeatPasswordField.getText(), emailField.getText(),
                 phoneNumberFiled.getText());
         boolean allInfoValid = true;
         for (int i = 0; i <= 3; i++) {
@@ -51,7 +53,7 @@ public class SignupController {
                         newUsernameField.setText(null);
                         break;
                     case 3:
-                        passwordFiled.setText(null);
+                        passwordField.setText(null);
                         repeatPasswordField.setText(null);
                         break;
                 }
@@ -59,7 +61,7 @@ public class SignupController {
         }
 
         if (allInfoValid) {
-            User member = new User(newUsernameField.getText(), passwordFiled.getText(), nameField.getText(),
+            User member = new User(newUsernameField.getText(), passwordField.getText(), nameField.getText(),
                     lastNameField.getText(), emailField.getText(), phoneNumberFiled.getText());
             Person.setCurrentPerson(member);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

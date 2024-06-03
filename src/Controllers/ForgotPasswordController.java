@@ -28,7 +28,7 @@ public class ForgotPasswordController {
     @FXML
     private TextField usernameFiled;
     @FXML
-    void changePassword(MouseEvent event) {
+    public void changePassword(javafx.scene.input.MouseEvent mouseEvent) {
         try {
             Person p = Person.findPersonNoPassword(usernameFiled.getText(),emailFiled.getText());
             if (Auth.isPasswordValid(newPassword.getText())&&Auth.doPasswordAndRepeatMatch(newPassword.getText(),repeatNewPassword.getText())){
@@ -38,5 +38,4 @@ public class ForgotPasswordController {
             System.out.println(e.getMessage());
         }
     }
-
 }
