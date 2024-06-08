@@ -113,8 +113,13 @@ public class Person {
         people.add(person);
     }
 
+    // This is used to keep track of app users
     public static void setCurrentPerson(Person current) {
         Person.current = current;
+    }
+
+    public static Person getCurrentPerson() {
+        return current;
     }
 
 }
