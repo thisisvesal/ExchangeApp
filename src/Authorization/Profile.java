@@ -1,4 +1,4 @@
-package Authorizaztion;
+package Authorization;
 
 public class Profile {
 }
