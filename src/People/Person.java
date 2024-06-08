@@ -56,6 +56,17 @@ public class Person {
         }
         throw new Exceptions.UserNotFoundException();
     }
+    public static Person findPersonNoPassword(String username, String email) throws UserNotFoundException {
+        if(people == null) throw new Exceptions.UserNotFoundException();
+        for (Person person : people) {
+            if (person.username.equals(username)) {
+                if (person.email.equals(email)){
+                    return person;
+                }
+            }
+        }
+        throw new Exceptions.UserNotFoundException();
+    }
 
     public String getUsername() {
         return username;
