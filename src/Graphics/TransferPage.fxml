@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="1016.0" style="-fx-background-color: #1f1f1f;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.TransferController">
+   <children>
+      <Text fx:id="transferTitle" fill="WHITE" layoutX="258.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transfer" wrappingWidth="178.1367645263672">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Accordion layoutX="64.0" layoutY="215.0" />
+      <Accordion layoutX="20.0" layoutY="76.0" />
+      <Circle fx:id="profilePic" fill="WHITE" layoutX="85.0" layoutY="88.0" onMouseClicked="#openProfilePage" radius="68.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" />
+      <Text fx:id="usernameFiled" fill="WHITE" layoutX="35.0" layoutY="196.0" onMouseClicked="#openProfilePage" strokeType="OUTSIDE" strokeWidth="0.0" text="username">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text fx:id="walletFiled" fill="WHITE" layoutX="38.0" layoutY="339.0" onMouseClicked="#openWalletPage" strokeType="OUTSIDE" strokeWidth="0.0" text="Wallet">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="exchangeFiled" fill="WHITE" layoutX="38.0" layoutY="409.0" onMouseClicked="#openExchangePage" strokeType="OUTSIDE" strokeWidth="0.0" text="Exchange">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="swapFiled" fill="WHITE" layoutX="38.0" layoutY="442.0" onMouseClicked="#openSwapPage" strokeType="OUTSIDE" strokeWidth="0.0" text="Swap">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <CheckBox layoutX="34.0" layoutY="215.0" mnemonicParsing="false" text="Demo mode" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </CheckBox>
+      <Line endX="99.99998474121094" endY="101.79998779296875" layoutX="-72.0" layoutY="171.0" startX="99.99998474121094" startY="317.5999755859375" stroke="#78ffb7" strokeWidth="5.0" />
+      <Text fx:id="transferFiled" fill="#78ffb7" layoutX="38.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transfer">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="historyFiled" fill="WHITE" layoutX="38.0" layoutY="477.0" onMouseClicked="#openHistoryPage" strokeType="OUTSIDE" strokeWidth="0.0" text="History">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Line endX="99.99998474121094" endY="-75.80000305175781" layoutX="130.0" layoutY="107.0" startX="99.99998474121094" startY="398.5999755859375" stroke="#78ffb7" strokeWidth="3.0" />
+      <Text fx:id="HomeFiled" fill="WHITE" layoutX="38.0" layoutY="302.0" onMouseClicked="#openHomePage" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="LogOutFiled" fill="#ff6a6a" layoutX="938.0" layoutY="35.0" onMouseClicked="#LogInPage" stroke="#ff6a6a" strokeType="INSIDE" strokeWidth="2.0" text="Log out">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="transferTitle1" fill="WHITE" layoutX="258.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter wallet id" wrappingWidth="142.9368133544922">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <TextField fx:id="walletIdFiled" layoutX="422.0" layoutY="144.0" prefHeight="26.0" prefWidth="233.0" promptText="wallet_id" />
+      <Text fx:id="transferTitle11" fill="WHITE" layoutX="258.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose currency" wrappingWidth="142.9368133544922">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fx:id="transferTitle111" fill="WHITE" layoutX="258.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much do you want to transfer?" wrappingWidth="310.9368438720703">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <TextField fx:id="amountFiled" layoutX="581.0" layoutY="339.0" prefHeight="26.0" prefWidth="233.0" promptText="amount" />
+      <Button layoutX="772.0" layoutY="414.0" mnemonicParsing="false" onMouseClicked="#TransferMoneyToWallet" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: #78ffb7;" text="Transfer">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TilePane fx:id="currencies" layoutX="298.0" layoutY="257.0">
+         <children>
+            <RadioButton fx:id="USD" mnemonicParsing="false" text="USD" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="EURO" mnemonicParsing="false" text="EURO" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="TOMAN" mnemonicParsing="false" text="TOMAN" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="YEN" mnemonicParsing="false" text="YEN" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="GBP" mnemonicParsing="false" text="GBP" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </RadioButton>
+         </children>
+      </TilePane>
+   </children>
+</AnchorPane>

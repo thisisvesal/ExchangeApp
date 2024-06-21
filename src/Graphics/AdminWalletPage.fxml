@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="1016.0" style="-fx-background-color: #1f1f1f;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdminWalletController">
+   <children>
+      <Text fill="WHITE" layoutX="258.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wallet" wrappingWidth="178.1367645263672">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <TableView layoutX="252.0" layoutY="191.0" prefHeight="320.0" prefWidth="264.0" style="-fx-background-color: #454545;">
+         <columns>
+            <TableColumn editable="false" maxWidth="130.0" minWidth="130.0" prefWidth="171.99998474121094" text="Currencies" />
+            <TableColumn editable="false" maxWidth="130.0" minWidth="130.0" prefWidth="108.0" text="(USD)">
+               <columns>
+                  <TableColumn editable="false" maxWidth="130.0" minWidth="130.0" prefWidth="132.0" text="Amount" />
+               </columns>
+            </TableColumn>
+         </columns>
+      </TableView>
+      <Accordion layoutX="64.0" layoutY="215.0" />
+      <Accordion layoutX="20.0" layoutY="76.0" />
+      <Text fx:id="walletFiled" fill="#78ffb7" layoutX="70.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wallet">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Line endX="216.40000915527344" endY="317.5999755859375" layoutX="-51.0" layoutY="-213.0" startX="99.99998474121094" startY="317.5999755859375" stroke="#78ffb7" strokeWidth="5.0" />
+      <Text fx:id="historyFiled" fill="WHITE" layoutX="70.0" layoutY="347.0" onMouseClicked="#openAdminHistoryPage" strokeType="OUTSIDE" strokeWidth="0.0" text="History">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Line endX="99.99998474121094" endY="-75.80000305175781" layoutX="130.0" layoutY="107.0" startX="99.99998474121094" startY="398.5999755859375" stroke="#78ffb7" strokeWidth="3.0" />
+      <Text fx:id="HomeFiled" fill="WHITE" layoutX="70.0" layoutY="230.0" onMouseClicked="#openAminHomePage" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="LogOutFiled" fill="#ff6a6a" layoutX="938.0" layoutY="35.0" onMouseClicked="#LogInPage" stroke="#ff6a6a" strokeType="INSIDE" strokeWidth="2.0" text="Log out">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#78ffb7" layoutX="266.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total balance (USD)">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <TextField editable="false" layoutX="259.0" layoutY="122.0" prefHeight="26.0" prefWidth="186.0" promptText="balance.." />
+      <Text fill="#78ffb7" layoutX="713.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Annual asset chart">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <LineChart layoutX="536.0" layoutY="135.0" prefHeight="380.0" prefWidth="467.0">
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
+      </LineChart>
+      <Text fill="#78ffb7" layoutX="46.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADMIN">
+         <font>
+            <Font size="37.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

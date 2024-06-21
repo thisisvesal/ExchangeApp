@@ -78,7 +78,7 @@ public class LoginController {
 
         // Generate the CAPTCHA text
         String captchaText = kaptchaProducer.createText();
-        System.out.println("CAPTCHA Text: " + captchaText);
+        System.out.println(STR."CAPTCHA Text: \{captchaText}");
         Auth.setCurrentCaptchaText(captchaText);
 
         // Generate the CAPTCHA image based on the text
@@ -88,7 +88,7 @@ public class LoginController {
         try {
             File outputFile = new File("src/Authorization/Captcha/kaptcha.png");
             ImageIO.write(captchaImage, "png", outputFile);
-            System.out.println("Kaptcha generated in: " + outputFile.getAbsolutePath());
+            System.out.println(STR."Kaptcha generated in: \{outputFile.getAbsolutePath()}");
             this.captchaImage.setImage(new Image(outputFile.toURI().toString()));
         } catch (IOException ioException) {
             System.out.println("Kaptcha generation failed at: LoginController : regenerateCaptcha");

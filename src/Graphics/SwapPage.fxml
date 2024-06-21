@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="1016.0" style="-fx-background-color: #1f1f1f;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SwapController">
+   <children>
+      <Text fx:id="swapTitle" fill="WHITE" layoutX="258.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Swap" wrappingWidth="178.1367645263672">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Accordion layoutX="64.0" layoutY="215.0" />
+      <Accordion layoutX="20.0" layoutY="76.0" />
+      <Circle fx:id="profilePic" fill="WHITE" layoutX="85.0" layoutY="88.0" onMouseClicked="#openProfilePage" radius="68.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" />
+      <Text fx:id="usernameFiled" fill="WHITE" layoutX="35.0" layoutY="196.0" onMouseClicked="#openProfilePage" strokeType="OUTSIDE" strokeWidth="0.0" text="username">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text fx:id="walletFiled" fill="WHITE" layoutX="38.0" layoutY="339.0" onMouseClicked="#openWalletPage" strokeType="OUTSIDE" strokeWidth="0.0" text="Wallet">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="exchangeFiled" fill="WHITE" layoutX="38.0" layoutY="409.0" onMouseClicked="#openExchangePage" strokeType="OUTSIDE" strokeWidth="0.0" text="Exchange">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="swapFiled" fill="#78ffb7" layoutX="38.0" layoutY="442.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Swap">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <CheckBox layoutX="34.0" layoutY="215.0" mnemonicParsing="false" text="Demo mode" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </CheckBox>
+      <Line endX="99.99998474121094" endY="101.79998779296875" layoutX="-72.0" layoutY="171.0" startX="99.99998474121094" startY="317.5999755859375" stroke="#78ffb7" strokeWidth="5.0" />
+      <Text fx:id="transferFiled" fill="WHITE" layoutX="38.0" layoutY="374.0" onMouseClicked="#openTransferPage" strokeType="OUTSIDE" strokeWidth="0.0" text="Transfer">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="historyFiled" fill="WHITE" layoutX="38.0" layoutY="477.0" onMouseClicked="#openHistoryPage" strokeType="OUTSIDE" strokeWidth="0.0" text="History">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Line endX="99.99998474121094" endY="-75.80000305175781" layoutX="130.0" layoutY="107.0" startX="99.99998474121094" startY="398.5999755859375" stroke="#78ffb7" strokeWidth="3.0" />
+      <Text fx:id="HomeFiled" fill="WHITE" layoutX="38.0" layoutY="302.0" onMouseClicked="#openHomePage" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="LogOutFiled" fill="#ff6a6a" layoutX="938.0" layoutY="35.0" onMouseClicked="#LogInPage" stroke="#ff6a6a" strokeType="INSIDE" strokeWidth="2.0" text="Log out">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
